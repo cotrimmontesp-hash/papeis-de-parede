@@ -1,0 +1,41 @@
+{
+  "expo": {
+    "name": "Papéis de Parede",
+    "slug": "papeis-de-parede",
+    "version": "1.0.0",
+    "orientation": "default",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "backgroundColor": "#0E1116",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "br.com.minanoideias.papeisdeparede"
+    },
+    "android": {
+      "package": "br.com.minanoideias.papeisdeparede",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#0E1116"
+      }
+    },
+    "web": {
+      "output": "single",
+      "favicon": "./assets/favicon.png",
+      "name": "Papéis de Parede",
+      "shortName": "Papéis",
+      "themeColor": "#0E1116",
+      "backgroundColor": "#0E1116"
+    },
+    "plugins": [
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/splash-icon.png",
+          "imageWidth": 200,
+          "resizeMode": "contain",
+          "backgroundColor": "#0E1116"
+        }
+      ]
+    ]
+  }
+}
