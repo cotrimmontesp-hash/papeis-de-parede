@@ -41,7 +41,8 @@ const GRUNGE = (op: number) => `<filter id="st-grunge" x="0" y="0" width="100%" 
 const VIN = `<radialGradient id="st-vin" cx="0.5" cy="0.45" r="0.75"><stop offset="0.5" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity="0.8"/></radialGradient>`;
 const acabamento = (w: number, h: number) => `<rect width="${w}" height="${h}" fill="url(#st-vin)"/><rect width="${w}" height="${h}" filter="url(#st-grao)"/>`;
 
-function titulo(t: Time, w: number, y: number, fonte: string, fs: number, cor: string, extra = '') {
+function titulo(t: Time, w: number, y: number, fonte: string, fs0: number, cor: string, extra = '') {
+  const fs = Math.min(fs0, (w * 0.9) / (t.nome.length * 0.55)); // nomes longos (ex.: Manchester United) cabem na largura
   return `<text x="${w / 2}" y="${y}" text-anchor="middle" font-family="${fonte}" font-size="${fs}" fill="${cor}" letter-spacing="${fs * 0.03}" ${extra}>${t.nome.toUpperCase()}</text>`;
 }
 

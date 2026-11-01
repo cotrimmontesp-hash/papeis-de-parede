@@ -7,10 +7,10 @@ from PIL import Image
 APP = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PRINTS = os.path.join(os.path.dirname(APP), 'prints')
 OUT = os.path.join(APP, 'public', 'papeis')
-ESTILOS = ['asas', 'torcida', 'chuva', 'colagem', 'neon', 'metal']
+ESTILOS = ['asas', 'torcida', 'chuva', 'colagem', 'neon', 'metal', 'aquarela', 'minimalista', 'retro', 'pixel']
 cat = {}
-for png in sorted(glob.glob(os.path.join(PRINTS, 'lote*', '*.png'))):
-    m = re.match(r'(.+)-(' + '|'.join(ESTILOS) + r')\.png$', os.path.basename(png))
+for png in sorted(glob.glob(os.path.join(PRINTS, 'lote*', '*.png')) + glob.glob(os.path.join(PRINTS, 'europa*', '*.png'))):
+    m = re.match(r'(.+?)-(' + '|'.join(ESTILOS) + r')\.png$', os.path.basename(png))
     if not m: continue
     tid, est = m.groups()
     d = os.path.join(OUT, tid); os.makedirs(d, exist_ok=True)
@@ -24,5 +24,14 @@ for k in cat: cat[k].sort(key=ESTILOS.index)
 with open(os.path.join(APP, 'src', 'catalogo.ts'), 'w') as f:
     f.write('// Gerado por scripts/preparar-imagens.py — não editar à mão.\n')
     f.write('export const CATALOGO: Record<string, string[]> = ' + json.dumps(cat, indent=2, ensure_ascii=False) + ';\n')
+with open(os.path.join(APP, 'src', 'imagens.native.ts'), 'w') as f:
+    f.write('// Gerado por scripts/preparar-imagens.py — não editar à mão. Imagens embutidas no app nativo.\n')
+    f.write('const M: Record<string, { mini: number; orig: number }> = {\n')
+    for tid, ests in cat.items():
+        for e in ests:
+            f.write(f"  '{tid}/{e}': {{ mini: require('../public/papeis/{tid}/{e}-mini.webp'), orig: require('../public/papeis/{tid}/{e}.jpg') }},\n")
+    f.write('};\nexport const fonteMini = (id: string, e: string) => M[`${id}/${e}`].mini;\n')
+    f.write('export const fonteGrande = (id: string, e: string) => M[`${id}/${e}`].orig;\n')
+    f.write('export const original = (id: string, e: string): number => M[`${id}/${e}`].orig;\n')
 tot = sum(os.path.getsize(p) for p in glob.glob(os.path.join(OUT, '*', '*')))
 print(len(cat), 'times,', sum(map(len, cat.values())), 'imagens,', round(tot / 1e6, 1), 'MB em public/papeis')
