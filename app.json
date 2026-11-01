@@ -16,7 +16,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#0E1116"
-      }
+      },
+      "versionCode": 1
     },
     "web": {
       "output": "single",
@@ -34,6 +35,16 @@
           "imageWidth": 200,
           "resizeMode": "contain",
           "backgroundColor": "#0E1116"
+        }
+      ],
+      "expo-asset",
+      [
+        "expo-media-library",
+        {
+          "savePhotosPermission": "Permitir salvar papéis de parede na sua galeria.",
+          "granularPermissions": [
+            "photo"
+          ]
         }
       ]
     ]
