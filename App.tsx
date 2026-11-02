@@ -7,6 +7,7 @@ import { CATALOGO } from './src/catalogo';
 import { baixarImagem } from './src/baixar';
 import { fonteGrande, fonteMini, original } from './src/imagens';
 import { salvarNaGaleria } from './src/salvar';
+import { Cartoes } from './src/Inicio';
 
 const WEB = Platform.OS === 'web';
 
@@ -15,7 +16,7 @@ const semAcento = (s: string) => s.normalize('NFD').replace(/[\u0300-\u036f]/g, 
 export default function App() {
   const { width } = useWindowDimensions();
   const [busca, setBusca] = useState('');
-  const [aba, setAba] = useState<CategoriaId>('brasil');
+  const [aba, setAba] = useState<CategoriaId | null>(null);
   const [sel, setSel] = useState<Item | null>(null);
   const [estilo, setEstilo] = useState('');
   const [msg, setMsg] = useState('');
@@ -23,12 +24,16 @@ export default function App() {
   const cols = largura > 700 ? 5 : largura > 480 ? 4 : 3;
   const cw = (largura - 16 * 2 - 10 * (cols - 1)) / cols;
 
-  const cat = CATEGORIAS.find((c) => c.id === aba)!;
+  const cat = CATEGORIAS.find((c) => c.id === aba) ?? CATEGORIAS[0];
   const daAba = useMemo(() => ITENS.filter((t) => t.cat === aba && CATALOGO[t.id]?.length), [aba]);
   const itens = useMemo(() => {
     const q = semAcento(busca.trim());
     return daAba.filter((t) => !q || semAcento(t.nome).includes(q));
   }, [busca, daAba]);
+  const achados = useMemo(() => {
+    const q = semAcento(busca.trim());
+    return q ? ITENS.filter((t) => CATALOGO[t.id]?.length && semAcento(t.nome).includes(q)) : [];
+  }, [busca]);
   const total = (c: CategoriaId) => ITENS.filter((t) => t.cat === c && CATALOGO[t.id]?.length).length;
 
   function abrir(t: Item) { setSel(t); setEstilo(CATALOGO[t.id][0]); setMsg(''); }
@@ -46,9 +51,33 @@ export default function App() {
 
   return (
     <SafeAreaView style={s.tela}>
-      <StatusBar style="light" />
+      <StatusBar style={aba ? 'light' : 'dark'} />
+      {aba === null ? (
+        <View style={s.inicio}>
+          <ScrollView contentContainerStyle={{ width: largura, paddingHorizontal: 16, alignSelf: 'center' }}>
+            <Text style={[s.titulo, s.tituloClaro]}>Papéis de Parede</Text>
+            <Text style={s.subClaro}>Escolha uma categoria</Text>
+            <TextInput value={busca} onChangeText={setBusca} placeholder="Buscar time ou tema…" placeholderTextColor="#8A8F98"
+              style={s.buscaClara} accessibilityLabel="Buscar" autoCorrect={false} />
+            {busca.trim() ? (
+              <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 10, paddingBottom: 24 }}>
+                {achados.length === 0 && <Text style={s.subClaro}>Nada encontrado.</Text>}
+                {achados.map((item) => (
+                  <Pressable key={item.id} onPress={() => abrir(item)} style={[s.card, s.cardClaro, { width: cw }]} accessibilityLabel={item.nome}>
+                    <Image source={fonteMini(item.id, CATALOGO[item.id][0])} style={{ width: cw, height: cw * 20 / 9 }} />
+                    <Text style={[s.nomeCard, { color: '#1F2328' }]} numberOfLines={1}>{item.nome}</Text>
+                  </Pressable>
+                ))}
+              </View>
+            ) : <Cartoes largura={largura} abrir={(c) => { setAba(c); setBusca(''); }} />}
+          </ScrollView>
+        </View>
+      ) : (
       <View style={[s.conteudo, { width: largura }]}>
-        <Text style={s.titulo}>Papéis de Parede</Text>
+        <Pressable onPress={() => { setAba(null); setBusca(''); }} accessibilityRole="button" accessibilityLabel="Voltar ao início" style={s.inicioBtn}>
+          <Text style={s.inicioTxt}>‹ Início</Text>
+        </Pressable>
+        <Text style={[s.titulo, { marginTop: 4 }]}>Papéis de Parede</Text>
         <View style={s.abas} accessibilityRole="tablist">
           {CATEGORIAS.map((c) => (
             <Pressable key={c.id} onPress={() => { setAba(c.id); setBusca(''); }} accessibilityRole="tab"
@@ -83,6 +112,7 @@ export default function App() {
         />
         </>)}
       </View>
+      )}
 
       <Modal visible={!!sel} animationType="slide" onRequestClose={() => setSel(null)}>
         <SafeAreaView style={s.tela}>
@@ -109,8 +139,11 @@ export default function App() {
             <Pressable style={[s.botao, s.voltar]} onPress={() => setSel(null)}>
               <Text style={s.botaoTxt}>Voltar</Text>
             </Pressable>
-            <Text style={s.aviso}>{sel?.cat === 'brasil' || sel?.cat === 'europa'
+            <Text style={s.aviso}>{estilo.startsWith('web') ? 'Imagem de terceiros (arte de torcida da web). Escudo é marca do clube. Só uso pessoal.'
+              : sel?.cat === 'brasil' || sel?.cat === 'europa'
               ? 'Escudos são marcas registradas dos clubes. Uso pessoal; não é um app oficial.'
+              : sel?.cat === 'herois' ? 'Imagem de terceiros (fan art). Personagens são da Marvel/DC. Só uso pessoal.'
+              : estilo.startsWith('foto') ? 'Imagem de terceiros (fan art). Personagens são dos seus donos. Só uso pessoal.'
               : 'Arte original inspirada no tema; não usa personagens, logos ou pôsteres reais.'}</Text>
           </ScrollView>
         </SafeAreaView>
@@ -143,5 +176,12 @@ const s = StyleSheet.create({
   abaTxtSel: { color: '#fff' },
   breve: { marginTop: 40, alignItems: 'center', padding: 24, borderRadius: 16, backgroundColor: '#1B2028' },
   breveTit: { color: '#fff', fontSize: 20, fontWeight: '800' },
+  inicio: { flex: 1, alignSelf: 'stretch', backgroundColor: '#F6F5F1' },
+  tituloClaro: { color: '#1F2328' },
+  subClaro: { color: '#6B7280', fontSize: 15, marginVertical: 8 },
+  buscaClara: { backgroundColor: '#fff', color: '#1F2328', borderRadius: 14, paddingHorizontal: 14, paddingVertical: 12, fontSize: 16, marginBottom: 16, borderWidth: 1, borderColor: '#E7E5E0' },
+  cardClaro: { backgroundColor: '#fff' },
+  inicioBtn: { marginTop: 12, alignSelf: 'flex-start', paddingVertical: 6, paddingHorizontal: 12, borderRadius: 999, backgroundColor: '#1B2028' },
+  inicioTxt: { color: '#C8CED6', fontSize: 15, fontWeight: '700' },
   aviso: { color: '#6B7380', fontSize: 12, marginTop: 12, textAlign: 'center' },
 });
