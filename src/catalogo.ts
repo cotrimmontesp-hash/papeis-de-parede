@@ -1,5 +1,21 @@
 // Gerado por scripts/preparar-imagens.py — não editar à mão.
 export const CATALOGO: Record<string, string[]> = {
+  "bart-simpson": [
+    "foto",
+    "foto2",
+    "foto3",
+    "foto4"
+  ],
+  "scooby-doo": [
+    "foto",
+    "foto2",
+    "foto3"
+  ],
+  "simpsons": [
+    "foto",
+    "foto2",
+    "foto3"
+  ],
   "barcelona": [
     "asas",
     "torcida",
@@ -64,6 +80,40 @@ export const CATALOGO: Record<string, string[]> = {
     "neon",
     "metal"
   ],
+  "batman": [
+    "foto",
+    "foto2"
+  ],
+  "homem-aranha": [
+    "foto",
+    "foto2",
+    "foto3"
+  ],
+  "homem-de-ferro": [
+    "foto"
+  ],
+  "hulk": [
+    "foto",
+    "foto2"
+  ],
+  "superman": [
+    "foto",
+    "foto2"
+  ],
+  "thor": [
+    "foto"
+  ],
+  "wolverine": [
+    "foto"
+  ],
+  "capitao-america": [
+    "foto",
+    "foto2"
+  ],
+  "pantera-negra": [
+    "foto",
+    "foto2"
+  ],
   "athletico-pr": [
     "asas",
     "torcida",
@@ -78,7 +128,9 @@ export const CATALOGO: Record<string, string[]> = {
     "chuva",
     "colagem",
     "neon",
-    "metal"
+    "metal",
+    "web",
+    "web2"
   ],
   "flamengo": [
     "asas",
@@ -86,7 +138,9 @@ export const CATALOGO: Record<string, string[]> = {
     "chuva",
     "colagem",
     "neon",
-    "metal"
+    "metal",
+    "web",
+    "web2"
   ],
   "palmeiras": [
     "asas",
@@ -94,7 +148,9 @@ export const CATALOGO: Record<string, string[]> = {
     "chuva",
     "colagem",
     "neon",
-    "metal"
+    "metal",
+    "web",
+    "web2"
   ],
   "vasco": [
     "asas",
@@ -102,7 +158,8 @@ export const CATALOGO: Record<string, string[]> = {
     "chuva",
     "colagem",
     "neon",
-    "metal"
+    "metal",
+    "web"
   ],
   "atletico-mg": [
     "asas",
@@ -150,7 +207,8 @@ export const CATALOGO: Record<string, string[]> = {
     "chuva",
     "colagem",
     "neon",
-    "metal"
+    "metal",
+    "web"
   ],
   "detetive-neon": [
     "neon",
@@ -234,7 +292,8 @@ export const CATALOGO: Record<string, string[]> = {
     "chuva",
     "colagem",
     "neon",
-    "metal"
+    "metal",
+    "web"
   ],
   "sao-paulo": [
     "asas",
