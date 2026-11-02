@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Apartamento 3D — Mobiliar (ilustrativo)</title>
+<style>
+ html,body{margin:0;height:100%;overflow:hidden;font-family:system-ui,Arial,sans-serif;background:#e9e7e2}
+ #c{width:100%;height:100%;display:block}
+ #ui{position:absolute;top:10px;left:10px;right:10px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+ .grp{display:flex;flex-wrap:wrap;gap:4px;background:rgba(255,255,255,.88);padding:6px;border-radius:10px;box-shadow:0 1px 4px rgba(0,0,0,.15)}
+ button{font:600 13px system-ui,Arial;border:1px solid #bbb;background:#fff;border-radius:7px;padding:6px 10px;cursor:pointer}
+ button.on{background:#2f3a45;color:#fff;border-color:#2f3a45}
+ #aviso{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,.62);color:#fff;font:600 13px system-ui,Arial;padding:7px 14px;border-radius:8px;white-space:normal;text-align:center;max-width:92%}
+ #carregando{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:600 16px system-ui;color:#333}
+ #ajuda{position:absolute;bottom:52px;left:50%;transform:translateX(-50%);font:12px system-ui;color:#333;background:rgba(255,255,255,.75);padding:4px 10px;border-radius:6px;text-align:center;max-width:92%}
+</style>
+<script type="importmap">{"imports":{"three":"./lib/three.module.js","three/addons/":"./lib/addons/"}}</script>
+</head>
+<body>
+<canvas id="c"></canvas>
+<div id="carregando">Carregando modelo 3D…</div>
+<div id="ui">
+ <div class="grp" id="estilos"><button data-e="moderno">Moderno claro</button><button data-e="escandinavo">Escandinavo quente</button></div>
+ <div class="grp" id="vistas"></div>
+ <div class="grp"><button id="bteto">Teto: oculto</button></div>
+</div>
+<div id="ajuda">Arraste para girar · roda/pinça para zoom · botão direito ou 2 dedos para mover</div>
+<div id="aviso">Modelo 3D ilustrativo – móveis virtuais</div>
+<script type="module">
+import * as THREE from 'three';
+import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
+const canvas=document.getElementById('c');
+const renderer=new THREE.WebGLRenderer({canvas,antialias:true,preserveDrawingBuffer:true});
+renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+renderer.outputColorSpace=THREE.SRGBColorSpace; renderer.toneMapping=THREE.ACESFilmicToneMapping; renderer.toneMappingExposure=1.05;
+renderer.shadowMap.enabled=true; renderer.shadowMap.type=THREE.PCFSoftShadowMap;
+const scene=new THREE.Scene(); scene.background=new THREE.Color(0xe9e7e2);
+const camera=new THREE.PerspectiveCamera(50,1,0.05,100);
+const controls=new OrbitControls(camera,canvas); controls.enableDamping=true; controls.maxPolarAngle=Math.PI*0.499;
+scene.add(new THREE.HemisphereLight(0xffffff,0x9a958c,1.6));
+const sol=new THREE.DirectionalLight(0xfff3e0,1.6); sol.position.set(2,12,-9); sol.target.position.set(5.8,0,-3.3);
+sol.castShadow=true; sol.shadow.mapSize.set(2048,2048); Object.assign(sol.shadow.camera,{left:-8,right:8,top:8,bottom:-8,near:1,far:30}); sol.shadow.bias=-0.0005;
+scene.add(sol,sol.target);
+const interna=new THREE.PointLight(0xfff0dd,0,0,1.6); scene.add(interna);
+// Coordenadas do Blender (x, y, z) -> three (x, z, -y)
+const B=(x,y,z)=>new THREE.Vector3(x,z,-y);
+const VISTAS={
+ 'Vista de cima':{cam:B(5.78,3.30,13.5),alvo:B(5.78,3.34,0),teto:false},
+ '1 Sala':{cam:B(8.95,0.35,1.60),alvo:B(6.9,4.3,0.9),teto:true},
+ '2 Cozinha':{cam:B(9.45,1.95,1.65),alvo:B(10.3,5.9,0.85),teto:true},
+ '3 Quarto 1':{cam:B(2.95,3.95,1.60),alvo:B(0.9,5.3,0.6),teto:true},
+ '4 Quarto 2':{cam:B(4.35,3.95,1.60),alvo:B(5.3,6.0,0.6),teto:true},
+ '5 Suíte':{cam:B(3.25,2.45,1.60),alvo:B(1.4,0.9,0.6),teto:true},
+ 'Maquete':{cam:B(11.0,-3.2,12.0),alvo:B(5.78,3.34,0),teto:false},
+};
+const modelos={}; let estilo='moderno', tetoVisivel=false, vistaAtual='Maquete';
+function aplicaTeto(){for(const m of Object.values(modelos)) m.traverse(o=>{if(o.isMesh&&o.name.startsWith('Teto'))o.visible=tetoVisivel;});
+ document.getElementById('bteto').textContent='Teto: '+(tetoVisivel?'visível':'oculto');}
+function setEstilo(e){estilo=e;for(const [k,m] of Object.entries(modelos)) m.visible=(k===e);
+ document.querySelectorAll('#estilos button').forEach(b=>b.classList.toggle('on',b.dataset.e===e));}
+function setVista(n){const v=VISTAS[n]; vistaAtual=n; camera.position.copy(v.cam); controls.target.copy(v.alvo);
+ tetoVisivel=v.teto; aplicaTeto(); const dentro=v.teto; interna.intensity=dentro?6:0; interna.position.copy(v.cam).add(new THREE.Vector3(0,0.6,0));
+ camera.fov=dentro?70:45; camera.updateProjectionMatrix(); controls.update();
+ document.querySelectorAll('#vistas button').forEach(b=>b.classList.toggle('on',b.textContent===n));}
+const gv=document.getElementById('vistas');
+for(const n of Object.keys(VISTAS)){const b=document.createElement('button');b.textContent=n;b.onclick=()=>setVista(n);gv.appendChild(b);}
+document.querySelectorAll('#estilos button').forEach(b=>b.onclick=()=>setEstilo(b.dataset.e));
+document.getElementById('bteto').onclick=()=>{tetoVisivel=!tetoVisivel;aplicaTeto();};
+function resize(){const w=innerWidth,h=innerHeight;renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix();}
+addEventListener('resize',resize); resize();
+const loader=new GLTFLoader();
+const load=e=>new Promise((ok,err)=>loader.load(`../modelo_${e}.glb`,g=>{const s=g.scene;
+  s.traverse(o=>{if(o.isMesh){const n=o.name; const vidro=o.material&&o.material.transparent;
+    if(vidro){o.material.depthWrite=false;o.castShadow=false;} else {o.castShadow=!n.startsWith('Teto')&&!n.startsWith('Piso');}
+    o.receiveShadow=true; if(o.material&&o.material.map){o.material.map.anisotropy=8;}}});
+  modelos[e]=s;scene.add(s);ok();},undefined,err));
+const p=new URLSearchParams(location.hash.slice(1));
+Promise.all([load('moderno'),load('escandinavo')]).then(()=>{
+  document.getElementById('carregando').remove();
+  setEstilo(p.get('estilo')||'moderno'); setVista(p.get('vista')||'Maquete');
+  if(p.get('limpo')) {document.getElementById('ajuda').remove();}
+  window.__pronto=true;
+}).catch(e=>{document.getElementById('carregando').textContent='Erro ao carregar: '+e+' (abra por um servidor local, veja LEIA-ME)';});
+(function loop(){requestAnimationFrame(loop);controls.update();renderer.render(scene,camera);})();
+</script>
+</body>
+</html>
