@@ -29,3 +29,25 @@ Os extras horizontais (Capitão América e Pantera Negra) estão listados em ass
 | batman/foto2 | https://wallpapercave.com/wp/wp5188450.jpg | — | 1080x1920 | Cavaleiro das Trevas na tempestade; imagem de terceiros, uso pessoal |
 | superman/foto2 | https://wallpapercave.com/wp/wp2999445.jpg | — | 1125x2436 | Superman estilo game/HQ, traje brilhando; imagem de terceiros, uso pessoal |
 | hulk/foto2 | https://wallpapercave.com/wp/wp5118342.jpg | — | 1080x1920 | Hulk estilo HQ na chuva; imagem de terceiros, uso pessoal |
+
+## Lote herois4 (v8): Wallhaven + wallpapercave, via curl
+
+Aprovado pelo Paulo em 04/11/2026. Recorte cover 1080x2400. **Imagem de terceiros, uso pessoal.** Personagens: DC. Neymar (em Times do Brasil): fotos/edições de fãs; direito de imagem do jogador e marcas de clubes/patrocinadores.
+
+| Item / estilo | URL | Autor / fonte | Resolução original | Observação |
+|---|---|---|---|---|
+| arlequina/foto | https://wallhaven.cc/w/4dqrkj | deleted (uploader) | 2666x4000 | imagem de terceiros, uso pessoal |
+| arlequina/foto2 | https://wallhaven.cc/w/4drylj | BlackLagoon (uploader) | 1333x1920 | imagem de terceiros, uso pessoal |
+| arlequina/foto3 | https://wallhaven.cc/w/1q1oww | deleted (uploader) | 3404x9540 | imagem de terceiros, uso pessoal |
+| coringa/foto | https://wallhaven.cc/w/yjwzed | Gui (uploader) | 1569x2500 | imagem de terceiros, uso pessoal |
+| coringa/foto2 | https://wallpapercave.com/wp/wp14795197.webp | — | 1080x1920 | imagem de terceiros, uso pessoal |
+| coringa/foto3 | https://wallpapercave.com/wp/wp15128618.webp | — | 1159x1920 | imagem de terceiros, uso pessoal; texto minúsculo no canto |
+| batman/foto3 | https://wallhaven.cc/w/gpx3jl | valeyard (uploader) / https://x.com/faznova_/status/1694790213573255484 | 1448x2048 | imagem de terceiros, uso pessoal |
+| batman/foto4 | https://wallpapercave.com/wp/wp5638443.jpg | — | 1080x1920 | imagem de terceiros, uso pessoal |
+| batman/foto5 | https://wallpapercave.com/wp/wp5638417.jpg | — | 1242x2688 | imagem de terceiros, uso pessoal |
+| mulher-gato/foto | https://wallhaven.cc/w/rrgm5j | Kartoffelpuffer (uploader) | 1500x2277 | imagem de terceiros, uso pessoal |
+| mulher-gato/foto2 | https://wallpapercave.com/wp/wp9292608.jpg | — | 1080x2280 | imagem de terceiros, uso pessoal |
+| mulher-gato/foto3 | https://wallpapercave.com/wp/wp6371182.jpg | — | 1080x1920 | imagem de terceiros, uso pessoal |
+| neymar/foto | https://wallpapercave.com/wp/wp6683528.jpg | — | 1080x1920 | imagem de terceiros, uso pessoal |
+| neymar/foto2 | https://wallpapercave.com/wp/wp6683520.jpg | — | 1440x2560 | imagem de terceiros, uso pessoal |
+| neymar/foto3 | https://wallpapercave.com/wp/wp6683597.jpg | — | 1080x1920 | imagem de terceiros, uso pessoal |

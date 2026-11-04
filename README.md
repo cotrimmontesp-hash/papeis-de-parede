@@ -15,7 +15,9 @@ npx expo export -p web      # gera a pasta dist/ (Vercel usa vercel.json)
 
 ## APK (Android)
 
-- Arquivo atual: `../build/papeis-de-parede-v3.apk` (versão 1.2.0, versionCode 3, tela inicial em cartões; arm64, minSdk 24). 76.663.226 bytes (73 MB), sha256 `0969116a9fc112012dbc4c0e24f9e273d5c978f6b007a5024e1133b2ba4c2aeb`. Mesma chave do v1/v2: instala por cima.
+- Arquivo atual: `../build/papeis-de-parede-v4.apk` (versão 1.3.0, versionCode 4; inclui v3 a v7: cartões, Heróis, Times web, Desenhos; arm64, minSdk 24). 89.876.898 bytes (86 MB), sha256 `79babfa33c3f284c640f38fa021d0120b7538cd6e17b1ae6e0b8e030844859e7`. Mesma chave do v1 a v3: instala por cima. 223 imagens embutidas.
+  **Aviso:** contém imagens de terceiros (fan art, escudos): só uso pessoal, não distribuir publicamente.
+- v3: `../build/papeis-de-parede-v3.apk` (1.2.0, versionCode 3), sha256 `0969116a9fc112012dbc4c0e24f9e273d5c978f6b007a5024e1133b2ba4c2aeb`.
 - v2: `../build/papeis-de-parede-v2.apk` (1.1.0, versionCode 2), sha256 `b316840430b6df6c26db463b8f4715c87da3501c461dfe786ecccc588716db25`.
 - Anterior: `../build/papeis-de-parede-v1.apk` (1.0.0, versionCode 1, 60 imagens).
 - Como gerar (só ferramentas gratuitas, na box): `. /opt/tools/env.sh && npx expo prebuild -p android --no-install && cd android && ./gradlew assembleRelease`. O prebuild reescreve `android/`: depois dele, recoloque o `signingConfigs.release` (propriedades `PAPEIS_*`) em `android/app/build.gradle` e `reactNativeArchitectures=arm64-v8a` em `android/gradle.properties`. A cada versão, aumente `version` e `android.versionCode` no `app.json`.
@@ -69,3 +71,12 @@ npx expo export -p web      # gera a pasta dist/ (Vercel usa vercel.json)
 - Fonte das 18 verticais: wallpapercave.com, via curl. Os 4 extras horizontais vieram da API do Wallhaven.
 - Recorte cover 1080x2400. Amostras em `prints/desenhos-web1/` e `prints/herois3/`.
 - **Aviso:** imagens de terceiros, só uso pessoal. NÃO publicar no site/Vercel público sem revisão de direitos.
+
+## v8: mais Heróis e Neymar (branch `v8-mais-herois`)
+
+- Entraram 15 imagens da web aprovadas pelo Paulo em 04/11:
+  - Arlequina, Coringa e Mulher-Gato: 3 cada, como temas novos em Heróis.
+  - Batman: +3 (Imagens 3 a 5).
+  - Neymar: 3, como tema novo em Times do Brasil.
+- Fontes: `assets/herois/FONTES.md` (lote herois4). As amostras estão em `../prints/herois4/`.
+- **Aviso:** imagens de terceiros, só uso pessoal. As fotos do Neymar envolvem direito de imagem do jogador. NÃO publicar no site/Vercel público sem revisão de direitos.
