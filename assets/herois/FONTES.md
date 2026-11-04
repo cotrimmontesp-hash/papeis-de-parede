@@ -96,3 +96,34 @@ Personagens: DC. **Jogadores (Neymar, Messi, Cristiano Ronaldo): fotos reais. H�
 | cristiano/foto | https://wallpapercave.com/wp/wp7476061.jpg | não informado / wallpapercave | 1080x1920 |
 | cristiano/foto2 | https://wallpapercave.com/wp/wp12934030.jpg | não informado / wallpapercave | 1080x2340 |
 | cristiano/foto3 | https://wallpapercave.com/wp/wp14425847.jpg | não informado / wallpapercave | 1440x2560 |
+
+## Lote herois7 (v10), realista, aprovado pelo Paulo em 04/11/2026
+A homem-de-ferro-2 do rascunho ficou de fora: é a mesma arte de homem-de-ferro/foto.
+
+**Imagem de terceiros, uso pessoal.** Personagens: Marvel/DC. Baixadas via curl do wallpapercave, que não informa autor. Recorte cover 1080x2400 JPEG. Não publicar sem revisão de direitos.
+
+## Homem de Ferro
+
+| Arquivo | URL | Autor / fonte | Resolução original |
+|---|---|---|---|
+| homem-de-ferro/foto2 | https://wallpapercave.com/wp/wp3324207.jpg | não informado / wallpapercave | 1080x1920 |
+| homem-de-ferro/foto3 | https://wallpapercave.com/wp/wp3842266.jpg | não informado / wallpapercave | 1080x1920 |
+
+## Homem-Aranha
+
+| Arquivo | URL | Autor / fonte | Resolução original |
+|---|---|---|---|
+| homem-aranha/foto4 | https://wallpapercave.com/wp/wp4487970.jpg | não informado / wallpapercave | 1080x1920 |
+| homem-aranha/foto5 | https://wallpapercave.com/wp/wp3210978.jpg | não informado / wallpapercave | 1125x2436 |
+| homem-aranha/foto6 | https://wallpapercave.com/wp/wp4487989.jpg | não informado / wallpapercave | 1242x2688 |
+
+## Superman
+
+| Arquivo | URL | Autor / fonte | Resolução original |
+|---|---|---|---|
+| superman/foto3 | https://wallpapercave.com/wp/wp2769439.jpg | não informado / wallpapercave | 1536x2732 |
+| superman/foto4 | https://wallpapercave.com/wp/wp4573578.jpg | não informado / wallpapercave | 1080x1920 |
+| superman/foto5 | https://wallpapercave.com/wp/wp10489822.jpg | não informado / wallpapercave | 1080x1920 |
+## Observações
+- superman/foto3 (cena/pôster de "Superman: o Retorno") e superman/foto4 (cena de "Batman vs Superman") mostram o rosto dos atores. Há **direito de imagem de ator**.
+- homem-de-ferro/foto2 e superman/foto5 são renders mais estilizados que os demais.

@@ -88,3 +88,13 @@ npx expo export -p web      # gera a pasta dist/ (Vercel usa vercel.json)
   - Em Times do Brasil: +3 Neymar e os temas novos Messi e Cristiano Ronaldo, com 3 cada. O cartão mostra "20 times · 3 craques".
 - Fontes: `assets/herois/FONTES.md` (lote herois5).
 - **Aviso:** imagens de terceiros, só uso pessoal. As fotos de jogadores envolvem direito de imagem. NÃO publicar sem revisão de direitos.
+
+## v10: heróis realistas (branch `v10-herois-realistas`)
+
+- Entraram 8 imagens realistas (cena de filme ou render) aprovadas pelo Paulo em 04/11:
+  - Homem de Ferro: +2 (Imagens 2 e 3).
+  - Homem-Aranha: +3 (Imagens 4 a 6).
+  - Superman: +3 (Imagens 3 a 5).
+- A homem-de-ferro-2 ficou de fora porque já estava no app.
+- O app agora tem 261 imagens. Fontes: `assets/herois/FONTES.md` (lote herois7).
+- **Aviso:** imagens de terceiros, só uso pessoal. Superman 3 e 4 mostram rosto de ator (direito de imagem). NÃO publicar sem revisão de direitos.
