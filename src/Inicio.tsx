@@ -1,6 +1,6 @@
 import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
 import Svg, { Circle, Path, Rect } from 'react-native-svg';
-import { CATEGORIAS, ITENS, type CategoriaId } from './categorias';
+import { CATEGORIAS, ITENS, JOGADORES, type CategoriaId } from './categorias';
 import { CATALOGO } from './catalogo';
 import { fonteMini } from './imagens';
 
@@ -41,7 +41,7 @@ export function Cartoes({ largura, abrir }: { largura: number; abrir: (c: Catego
         const papeis = itens.reduce((n, t) => n + CATALOGO[t.id].length, 0);
         const times = c.id === 'brasil' || c.id === 'europa';
         const breve = itens.length === 0;
-        const etiqueta = breve ? 'Em breve' : v.etiqueta ?? `${itens.length} ${times ? 'times' : 'temas'}`;
+        const etiqueta = breve ? 'Em breve' : v.etiqueta ?? (() => { const j = itens.filter((t) => JOGADORES.includes(t.id)).length; return times ? `${itens.length - j} times${j ? ` · ${j} craques` : ''}` : `${itens.length} temas`; })();
         const previa = itens[0];
         return (
           <Pressable key={c.id} onPress={() => abrir(c.id)} style={[s.cartao, { width: cw }]}

@@ -38,6 +38,8 @@ const TEMAS: Item[] = [
   { id: 'mulher-gato', nome: 'Mulher-Gato', cat: 'herois' },
   // Neymar: fotos/edições de terceiros (direito de imagem do jogador); fontes em assets/herois/FONTES.md. Só uso pessoal.
   { id: 'neymar', nome: 'Neymar', cat: 'brasil' },
+  { id: 'messi', nome: 'Messi', cat: 'brasil' },
+  { id: 'cristiano', nome: 'Cristiano Ronaldo', cat: 'brasil' },
 ];
 
 export const ITENS: Item[] = [...TIMES.map((t) => ({ id: t.id, nome: t.nome, cat: 'brasil' as const })), ...EUROPA.map((t) => ({ id: t.id, nome: t.nome, cat: 'europa' as const })), ...TEMAS];
@@ -45,6 +47,9 @@ export const ITENS: Item[] = [...TIMES.map((t) => ({ id: t.id, nome: t.nome, cat
 export const NOME_ESTILO: Record<string, string> = {
   asas: 'Asas', torcida: 'Torcida', chuva: 'Vidro e chuva', colagem: 'Colagem', neon: 'Neon', metal: 'Metal',
   aquarela: 'Aquarela', minimalista: 'Minimalista', retro: 'Retrô', pixel: 'Pixel',
-  foto: 'Imagem 1', foto2: 'Imagem 2', foto3: 'Imagem 3', foto4: 'Imagem 4', foto5: 'Imagem 5',
+  foto: 'Imagem 1', foto2: 'Imagem 2', foto3: 'Imagem 3', foto4: 'Imagem 4', foto5: 'Imagem 5', foto6: 'Imagem 6',
   web: 'Arte da torcida', web2: 'Arte da torcida 2',
 };
+
+// Jogadores reais (direito de imagem do jogador); não contam como times.
+export const JOGADORES = ['neymar', 'messi', 'cristiano'];

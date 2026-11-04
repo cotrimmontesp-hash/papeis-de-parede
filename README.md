@@ -80,3 +80,11 @@ npx expo export -p web      # gera a pasta dist/ (Vercel usa vercel.json)
   - Neymar: 3, como tema novo em Times do Brasil.
 - Fontes: `assets/herois/FONTES.md` (lote herois4). As amostras estão em `../prints/herois4/`.
 - **Aviso:** imagens de terceiros, só uso pessoal. As fotos do Neymar envolvem direito de imagem do jogador. NÃO publicar no site/Vercel público sem revisão de direitos.
+
+## v9: Arlequina humana, Coringa e craques (branch `v9-mais-herois`)
+
+- Entraram 15 imagens da web aprovadas pelo Paulo em 04/11:
+  - Em Heróis: +3 Arlequina (versão humana) e +3 Coringa.
+  - Em Times do Brasil: +3 Neymar e os temas novos Messi e Cristiano Ronaldo, com 3 cada. O cartão mostra "20 times · 3 craques".
+- Fontes: `assets/herois/FONTES.md` (lote herois5).
+- **Aviso:** imagens de terceiros, só uso pessoal. As fotos de jogadores envolvem direito de imagem. NÃO publicar sem revisão de direitos.

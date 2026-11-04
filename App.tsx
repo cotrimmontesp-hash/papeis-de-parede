@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react';
 import { FlatList, Image, Modal, Platform, Pressable, SafeAreaView, ScrollView, StyleSheet, Text, TextInput, useWindowDimensions, View } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
-import { CATEGORIAS, ITENS, NOME_ESTILO, type CategoriaId, type Item } from './src/categorias';
+import { CATEGORIAS, ITENS, JOGADORES, NOME_ESTILO, type CategoriaId, type Item } from './src/categorias';
 import { TAMANHOS } from './src/arte';
 import { CATALOGO } from './src/catalogo';
 import { baixarImagem } from './src/baixar';
@@ -139,7 +139,7 @@ export default function App() {
             <Pressable style={[s.botao, s.voltar]} onPress={() => setSel(null)}>
               <Text style={s.botaoTxt}>Voltar</Text>
             </Pressable>
-            <Text style={s.aviso}>{sel?.id === 'neymar' ? 'Imagem de terceiros (foto/edição de fã). Direito de imagem do jogador e marcas dos clubes. Só uso pessoal.'
+            <Text style={s.aviso}>{sel && JOGADORES.includes(sel.id) ? 'Imagem de terceiros (foto/edição de fã). Direito de imagem do jogador e marcas dos clubes. Só uso pessoal.'
               : estilo.startsWith('web') ? 'Imagem de terceiros (arte de torcida da web). Escudo é marca do clube. Só uso pessoal.'
               : sel?.cat === 'brasil' || sel?.cat === 'europa'
               ? 'Escudos são marcas registradas dos clubes. Uso pessoal; não é um app oficial.'
