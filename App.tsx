@@ -139,7 +139,8 @@ export default function App() {
             <Pressable style={[s.botao, s.voltar]} onPress={() => setSel(null)}>
               <Text style={s.botaoTxt}>Voltar</Text>
             </Pressable>
-            <Text style={s.aviso}>{estilo.startsWith('web') ? 'Imagem de terceiros (arte de torcida da web). Escudo é marca do clube. Só uso pessoal.'
+            <Text style={s.aviso}>{sel?.id === 'neymar' ? 'Imagem de terceiros (foto/edição de fã). Direito de imagem do jogador e marcas dos clubes. Só uso pessoal.'
+              : estilo.startsWith('web') ? 'Imagem de terceiros (arte de torcida da web). Escudo é marca do clube. Só uso pessoal.'
               : sel?.cat === 'brasil' || sel?.cat === 'europa'
               ? 'Escudos são marcas registradas dos clubes. Uso pessoal; não é um app oficial.'
               : sel?.cat === 'herois' ? 'Imagem de terceiros (fan art). Personagens são da Marvel/DC. Só uso pessoal.'

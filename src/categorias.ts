@@ -33,6 +33,11 @@ const TEMAS: Item[] = [
   { id: 'wolverine', nome: 'Wolverine', cat: 'herois' },
   { id: 'capitao-america', nome: 'Capitão América', cat: 'herois' },
   { id: 'pantera-negra', nome: 'Pantera Negra', cat: 'herois' },
+  { id: 'arlequina', nome: 'Arlequina', cat: 'herois' },
+  { id: 'coringa', nome: 'Coringa', cat: 'herois' },
+  { id: 'mulher-gato', nome: 'Mulher-Gato', cat: 'herois' },
+  // Neymar: fotos/edições de terceiros (direito de imagem do jogador); fontes em assets/herois/FONTES.md. Só uso pessoal.
+  { id: 'neymar', nome: 'Neymar', cat: 'brasil' },
 ];
 
 export const ITENS: Item[] = [...TIMES.map((t) => ({ id: t.id, nome: t.nome, cat: 'brasil' as const })), ...EUROPA.map((t) => ({ id: t.id, nome: t.nome, cat: 'europa' as const })), ...TEMAS];
@@ -40,6 +45,6 @@ export const ITENS: Item[] = [...TIMES.map((t) => ({ id: t.id, nome: t.nome, cat
 export const NOME_ESTILO: Record<string, string> = {
   asas: 'Asas', torcida: 'Torcida', chuva: 'Vidro e chuva', colagem: 'Colagem', neon: 'Neon', metal: 'Metal',
   aquarela: 'Aquarela', minimalista: 'Minimalista', retro: 'Retrô', pixel: 'Pixel',
-  foto: 'Imagem 1', foto2: 'Imagem 2', foto3: 'Imagem 3', foto4: 'Imagem 4',
+  foto: 'Imagem 1', foto2: 'Imagem 2', foto3: 'Imagem 3', foto4: 'Imagem 4', foto5: 'Imagem 5',
   web: 'Arte da torcida', web2: 'Arte da torcida 2',
 };
