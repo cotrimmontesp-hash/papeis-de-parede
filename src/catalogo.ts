@@ -120,12 +120,18 @@ export const CATALOGO: Record<string, string[]> = {
   "arlequina": [
     "foto",
     "foto2",
-    "foto3"
+    "foto3",
+    "foto4",
+    "foto5",
+    "foto6"
   ],
   "coringa": [
     "foto",
     "foto2",
-    "foto3"
+    "foto3",
+    "foto4",
+    "foto5",
+    "foto6"
   ],
   "mulher-gato": [
     "foto",
@@ -133,6 +139,19 @@ export const CATALOGO: Record<string, string[]> = {
     "foto3"
   ],
   "neymar": [
+    "foto",
+    "foto2",
+    "foto3",
+    "foto4",
+    "foto5",
+    "foto6"
+  ],
+  "cristiano": [
+    "foto",
+    "foto2",
+    "foto3"
+  ],
+  "messi": [
     "foto",
     "foto2",
     "foto3"

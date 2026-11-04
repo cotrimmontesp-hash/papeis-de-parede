@@ -51,3 +51,48 @@ Aprovado pelo Paulo em 04/11/2026. Recorte cover 1080x2400. **Imagem de terceiro
 | neymar/foto | https://wallpapercave.com/wp/wp6683528.jpg | — | 1080x1920 | imagem de terceiros, uso pessoal |
 | neymar/foto2 | https://wallpapercave.com/wp/wp6683520.jpg | — | 1440x2560 | imagem de terceiros, uso pessoal |
 | neymar/foto3 | https://wallpapercave.com/wp/wp6683597.jpg | — | 1080x1920 | imagem de terceiros, uso pessoal |
+
+## Lote herois5 (v9), aprovado pelo Paulo em 04/11/2026
+
+**Imagem de terceiros, uso pessoal.** Baixadas via curl. Recorte cover 1080x2400 JPEG. Wallpapercave não informa autor.
+Personagens: DC. **Jogadores (Neymar, Messi, Cristiano Ronaldo): fotos reais. Há direito de imagem do jogador e marcas de clubes/patrocinadores. Não publicar sem revisão de direitos.**
+
+## Arlequina (versão humana)
+
+| Arquivo | URL | Autor / fonte | Resolução original |
+|---|---|---|---|
+| arlequina/foto4 | https://wallpapercave.com/wp/wp4143659.jpg | não informado / wallpapercave | 1080x1920 |
+| arlequina/foto5 | https://wallpapercave.com/wp/wp4796278.jpg | não informado / wallpapercave | 1440x2560 |
+| arlequina/foto6 | https://wallpapercave.com/wp/wp4796390.jpg | não informado / wallpapercave | 1080x1920 |
+
+## Coringa
+
+| Arquivo | URL | Autor / fonte | Resolução original |
+|---|---|---|---|
+| coringa/foto4 | https://wallpapercave.com/wp/wp14483295.jpg | não informado / wallpapercave | 1183x2560 |
+| coringa/foto5 | https://wallpapercave.com/wp/wp15128653.jpg | não informado / wallpapercave | 1180x2554 |
+| coringa/foto6 | https://wallpapercave.com/wp/wp14294512.jpg | não informado / wallpapercave | 1183x2560 |
+
+## Neymar
+
+| Arquivo | URL | Autor / fonte | Resolução original |
+|---|---|---|---|
+| neymar/foto4 | https://wallpapercave.com/wp/wp10965978.jpg | não informado / wallpapercave | 1440x3200 |
+| neymar/foto5 | https://wallpapercave.com/wp/wp10965992.jpg | não informado / wallpapercave | 1080x2340 |
+| neymar/foto6 | https://wallpapercave.com/wp/wp3878411.jpg | não informado / wallpapercave | 1080x1920 |
+
+## Messi
+
+| Arquivo | URL | Autor / fonte | Resolução original |
+|---|---|---|---|
+| messi/foto | https://wallpapercave.com/wp/wp4310239.jpg | não informado / wallpapercave | 1080x1920 |
+| messi/foto2 | https://wallpapercave.com/wp/wp4310241.jpg | não informado / wallpapercave | 1080x1920 |
+| messi/foto3 | https://wallpapercave.com/wp/wp4240441.jpg | não informado / wallpapercave | 1080x1920 |
+
+## Cristiano Ronaldo
+
+| Arquivo | URL | Autor / fonte | Resolução original |
+|---|---|---|---|
+| cristiano/foto | https://wallpapercave.com/wp/wp7476061.jpg | não informado / wallpapercave | 1080x1920 |
+| cristiano/foto2 | https://wallpapercave.com/wp/wp12934030.jpg | não informado / wallpapercave | 1080x2340 |
+| cristiano/foto3 | https://wallpapercave.com/wp/wp14425847.jpg | não informado / wallpapercave | 1440x2560 |
