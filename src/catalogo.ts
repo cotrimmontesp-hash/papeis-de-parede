@@ -90,10 +90,15 @@ export const CATALOGO: Record<string, string[]> = {
   "homem-aranha": [
     "foto",
     "foto2",
-    "foto3"
+    "foto3",
+    "foto4",
+    "foto5",
+    "foto6"
   ],
   "homem-de-ferro": [
-    "foto"
+    "foto",
+    "foto2",
+    "foto3"
   ],
   "hulk": [
     "foto",
@@ -101,7 +106,10 @@ export const CATALOGO: Record<string, string[]> = {
   ],
   "superman": [
     "foto",
-    "foto2"
+    "foto2",
+    "foto3",
+    "foto4",
+    "foto5"
   ],
   "thor": [
     "foto"

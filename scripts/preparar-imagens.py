@@ -9,7 +9,7 @@ PRINTS = os.path.join(os.path.dirname(APP), 'prints')
 OUT = os.path.join(APP, 'public', 'papeis')
 ESTILOS = ['asas', 'torcida', 'chuva', 'colagem', 'neon', 'metal', 'aquarela', 'minimalista', 'retro', 'pixel', 'foto', 'foto2', 'foto3', 'foto4', 'foto5', 'foto6', 'web', 'web2']
 cat = {}
-for png in sorted(glob.glob(os.path.join(PRINTS, 'lote*', '*.png')) + glob.glob(os.path.join(PRINTS, 'europa*', '*.png')) + glob.glob(os.path.join(PRINTS, 'herois2', '*.png')) + glob.glob(os.path.join(PRINTS, 'herois3', '*.png')) + glob.glob(os.path.join(PRINTS, 'herois4-app', '*.png')) + glob.glob(os.path.join(PRINTS, 'herois5-app', '*.png')) + glob.glob(os.path.join(PRINTS, 'desenhos-web1', '*.png')) + glob.glob(os.path.join(PRINTS, 'times-web1', '*.png'))):
+for png in sorted(glob.glob(os.path.join(PRINTS, 'lote*', '*.png')) + glob.glob(os.path.join(PRINTS, 'europa*', '*.png')) + glob.glob(os.path.join(PRINTS, 'herois2', '*.png')) + glob.glob(os.path.join(PRINTS, 'herois3', '*.png')) + glob.glob(os.path.join(PRINTS, 'herois4-app', '*.png')) + glob.glob(os.path.join(PRINTS, 'herois5-app', '*.png'))  + glob.glob(os.path.join(PRINTS, 'herois7-app', '*.png')) + glob.glob(os.path.join(PRINTS, 'desenhos-web1', '*.png')) + glob.glob(os.path.join(PRINTS, 'times-web1', '*.png'))):
     m = re.match(r'(.+?)-(' + '|'.join(ESTILOS) + r')\.png$', os.path.basename(png))
     if not m: continue
     tid, est = m.groups()
