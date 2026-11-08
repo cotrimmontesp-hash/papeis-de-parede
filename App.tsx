@@ -7,6 +7,7 @@ import { CATALOGO } from './src/catalogo';
 import { baixarImagem } from './src/baixar';
 import { fonteGrande, fonteMini, original } from './src/imagens';
 import { salvarNaGaleria } from './src/salvar';
+import { mensagemFalhaGaleria } from './src/uri-arquivo';
 import { Cartoes } from './src/Inicio';
 
 const WEB = Platform.OS === 'web';
@@ -44,7 +45,7 @@ export default function App() {
       if (WEB) { await baixarImagem(original(sel.id, estilo) as string, TAMANHOS[i], `${sel.id}-${estilo}`); setMsg('Pronto! Veja em Downloads.'); }
       else { await salvarNaGaleria(original(sel.id, estilo)); setMsg('Salvo na Galeria!'); }
     }
-    catch { setMsg('Não deu certo. Tente de novo.'); }
+    catch (e) { setMsg(WEB ? 'Não deu certo. Tente de novo.' : mensagemFalhaGaleria(e)); }
   }
   const estilos = sel ? CATALOGO[sel.id] : [];
   const mw = Math.min((largura - 32 - 8 * 5) / 6, 70);
